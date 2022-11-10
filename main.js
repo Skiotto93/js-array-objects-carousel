@@ -107,3 +107,29 @@ btnPrevSlide.addEventListener('click', function() {
     currentImageContainer.querySelector('.description h3').innerHTML = images[currentImageIndex].title;
     currentImageContainer.querySelector('.description p').innerHTML = images[currentImageIndex].text;
 });
+
+//BONUS 2 Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+const btnAuto = document.querySelector('.btn-auto');
+btnAuto.addEventListener('click', function() {
+    const time = setInterval(startAuto, 3000);
+    function startAuto() {
+        // Rimuovo la classe active dall'item
+        thumbs[currentImageIndex].classList.remove('active');
+        // SE currentImageIndex è minore della lunghezza di images - 1 allora incremento l'index
+        if (currentImageIndex < images.length - 1) {
+            // Incremento l'indice
+            currentImageIndex++;
+        //SE currentImageIndex è maggiore allora riporto l'indice a 0
+        } else {
+            currentImageIndex = 0;
+        }
+        //Aggiungo la classe active all'item successivo
+        thumbs[currentImageIndex].classList.add('active');
+        //Modifico l'immagine e il testo della view
+        // Compilo l'html
+        currentImageContainer.querySelector('img').src = images[currentImageIndex].image;
+        currentImageContainer.querySelector('img').alt = images[currentImageIndex].title;
+        currentImageContainer.querySelector('.description h3').innerHTML = images[currentImageIndex].title;
+        currentImageContainer.querySelector('.description p').innerHTML = images[currentImageIndex].text;
+    }
+});

@@ -83,3 +83,16 @@ body {
     filter: grayscale(0);
     border: 3px solid white;
 }
+/*----------------
+    AUTOPLAY
+----------------*/
+.autoplay {
+    display: flex;
+    justify-content: center;
+}
+.btn-auto {
+    margin-left: 1.25rem;
+    padding: 0 .625rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
