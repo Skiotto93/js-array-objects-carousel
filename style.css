@@ -11,9 +11,6 @@
 ----------------*/
 body {
     background-color: lightgray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .container {
     width: 1000px;
@@ -27,6 +24,20 @@ body {
     width: 50rem;
     height: 30rem;
     background-color: aqua;
+    object-fit: cover;
+}
+.view {
+    position: relative;
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.description {
+    text-align: right;
+    padding: 20px;
 }
 .collection {
     background-color: red;
@@ -34,9 +45,12 @@ body {
     width: 10rem;
     height: 30rem;
 }
+.collection img {
+    object-fit: cover;
+}
 .item img, .item {
     width: 10rem;
-    height: calc(30rem / 4);
+    height: calc(30rem / 5);
 }
 .up, .down {
     width: 1.5625rem;

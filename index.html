@@ -10,36 +10,54 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <!--Milestone 0:-->
-        <!--Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.-->
-        
-        <template id="">
+            <!--Milestone 0:-->
+            <!--Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l'immagine grande in modo da poter stilare lo slider.-->
             <div class="container">
                 <div class="view">
-                    <img src="img/01.webp" alt="#">
+                    <!-- <img src="img/01.webp" alt="#">
+                    <div class="description">
+                        <h3>Marvel's Spiderman Miles Morale</h3>
+                        <p>Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man</p>
+                    </div> -->
                 </div>
                 <div class="collection">
                     <div class="up">
                         <i id="centrate-arrow" class="fa-solid fa-chevron-up"></i>
                     </div>
-                    <div class="item">
-                        <img src="img/02.webp" alt="#">
-                    </div>
-                    <div class="item">
-                        <img src="img/03.webp" alt="#">
-                    </div>
-                    <div class="item">
-                        <img src="img/04.webp" alt="#">
-                    </div>
-                    <div class="item">
-                        <img src="img/05.webp" alt="#">
-                    </div>
                     <div class="down">
                         <i id="centrate-arrow" class="fa-solid fa-chevron-down"></i>
                     </div>
+                    <!-- <div class="item">
+                        <img src="img/01.webp" alt="#">
+                    </div>
+                    <div class="item">
+                        <img src="img/02.webp" alt="#">                        
+                    </div>
+                    <div class="item">
+                        <img src="img/03.webp" alt="#">    
+                    </div>
+                    <div class="item">
+                        <img src="img/04.webp" alt="#">    
+                    </div>
+                    <div class="item">
+                        <img src="img/05.webp" alt="#">    
+                    </div> -->
                 </div>
             </div>
-        </template>
+            <!-- Template right side -->
+            <template id="current-image">
+                <img src="img/01.webp" alt="#">
+                    <div class="description">
+                        <h3>Marvel's Spiderman Miles Morale</h3>
+                        <p>Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man</p>
+                    </div>
+            </template>
+            <!-- Template left side -->
+            <template id="thumbs">
+                <div class="item">
+                    <img src="img/01.webp" alt="#">
+                </div>
+            </template>
         <script src="main.js"></script>
     </body>
 </html>
