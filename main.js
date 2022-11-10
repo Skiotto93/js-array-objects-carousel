@@ -131,11 +131,38 @@ btnAutoStart.addEventListener('click', function() {
         currentImageContainer.querySelector('img').alt = images[currentImageIndex].title;
         currentImageContainer.querySelector('.description h3').innerHTML = images[currentImageIndex].title;
         currentImageContainer.querySelector('.description p').innerHTML = images[currentImageIndex].text;
-    }
+        }
     
-    const btnAutoStop = document.querySelector('.stop');
+    
+    // BONUS 3:
+    // Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay
+
+    const btnAutoReverse = document.querySelector('.reverse');
+    btnAutoReverse.addEventListener('click', function() {
+        const reverse = setInterval(startReverse, 3000);
+        function startReverse() {
+        thumbs[currentImageIndex].classList.remove('active');
+        // SE currentImageIndex è maggiore di 0 ALLORA Decremento l'index
+        if (currentImageIndex > 0) {
+            // Decremento l'indice
+            currentImageIndex--;
+        } else {
+            currentImageIndex = images.length - 1;
+        }
+        //Aggiungo la classe active all'item successivo
+        thumbs[currentImageIndex].classList.add('active');
+        //Modifico l'immagine e il testo della view
+        // Compilo l'html
+        currentImageContainer.querySelector('img').src = images[currentImageIndex].image;
+        currentImageContainer.querySelector('img').alt = images[currentImageIndex].title;
+        currentImageContainer.querySelector('.description h3').innerHTML = images[currentImageIndex].title;
+        currentImageContainer.querySelector('.description p').innerHTML = images[currentImageIndex].text;
+        
+        const btnAutoStop = document.querySelector('.stop');
         btnAutoStop.addEventListener('click', function() {
         clearInterval(time);
+        clearInterval(reverse)
+    });
+    }
 });
-
-})
+});
