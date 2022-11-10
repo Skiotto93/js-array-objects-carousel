@@ -3,7 +3,7 @@
 const images = [
     {
         image: 'img/01.webp',
-        title: 'Marvel\'s Spiderman Miles Morale',
+        title: 'Marvel\'s Spiderman Miles Morales',
         text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
     }, {
         image: 'img/02.webp',
@@ -48,9 +48,13 @@ currentImageContainer.append(templateCurrentImage);
 
 // THUMBS
 // Creo un ciclo con forEach
-images.forEach((element) => {
+images.forEach((element, index) => {
     // Clono il template di thumbs
     const templateThumbs = document.getElementById('thumbs').content.cloneNode(true);
+    // SE l'elemento su cui sto ciclando ha l'indice === a currentImageIndex gli applicherò la classe .active
+    if ( index === currentImageIndex ) {
+        templateThumbs.querySelector('.item').classList.add('active')
+    }
     // Compilo l'html
     templateThumbs.querySelector('img').src = element.image;
     templateThumbs.querySelector('img').alt = element.title;
@@ -58,6 +62,48 @@ images.forEach((element) => {
     thumbsContainer.append(templateThumbs);
 });
 // Al click dell'utente sulle frecce verso l'alto o il basso, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-const start = document.querySelector('.up').addEventListener('click', function() {
-    document.querySelector('')
-})
+//Seleziono tutte le item (crea un arrey)
+const thumbs = document.querySelectorAll('.item');
+
+const btnNextSlide = document.querySelector('.down');
+btnNextSlide.addEventListener('click', function() {
+    // Rimuovo la classe active dall'item
+    thumbs[currentImageIndex].classList.remove('active');
+    // SE currentImageIndex è minore della lunghezza di images - 1 allora incremento l'index
+    if (currentImageIndex < images.length - 1) {
+        // Incremento l'indice
+        currentImageIndex++;
+    //SE currentImageIndex è maggiore allora riporto l'indice a 0
+    } else {
+        currentImageIndex = 0;
+    }
+    //Aggiungo la classe active all'item successivo
+    thumbs[currentImageIndex].classList.add('active');
+    //Modifico l'immagine e il testo della view
+    // Compilo l'html
+    currentImageContainer.querySelector('img').src = images[currentImageIndex].image;
+    currentImageContainer.querySelector('img').alt = images[currentImageIndex].title;
+    currentImageContainer.querySelector('.description h3').innerHTML = images[currentImageIndex].title;
+    currentImageContainer.querySelector('.description p').innerHTML = images[currentImageIndex].text;
+});
+
+const btnPrevSlide = document.querySelector('.up');
+btnPrevSlide.addEventListener('click', function() {
+    // Rimuovo la classe active dall'item
+    thumbs[currentImageIndex].classList.remove('active');
+    // SE currentImageIndex è maggiore di 0 ALLORA Decremento l'index
+    if (currentImageIndex > 0) {
+        // Decremento l'indice
+        currentImageIndex--;
+    } else {
+        currentImageIndex = images.length - 1;
+    }
+    //Aggiungo la classe active all'item successivo
+    thumbs[currentImageIndex].classList.add('active');
+    //Modifico l'immagine e il testo della view
+    // Compilo l'html
+    currentImageContainer.querySelector('img').src = images[currentImageIndex].image;
+    currentImageContainer.querySelector('img').alt = images[currentImageIndex].title;
+    currentImageContainer.querySelector('.description h3').innerHTML = images[currentImageIndex].title;
+    currentImageContainer.querySelector('.description p').innerHTML = images[currentImageIndex].text;
+});
