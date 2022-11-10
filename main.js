@@ -109,8 +109,8 @@ btnPrevSlide.addEventListener('click', function() {
 });
 
 //BONUS 2 Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
-const btnAuto = document.querySelector('.btn-auto');
-btnAuto.addEventListener('click', function() {
+const btnAutoStart = document.querySelector('.start');
+btnAutoStart.addEventListener('click', function() {
     const time = setInterval(startAuto, 3000);
     function startAuto() {
         // Rimuovo la classe active dall'item
@@ -132,4 +132,10 @@ btnAuto.addEventListener('click', function() {
         currentImageContainer.querySelector('.description h3').innerHTML = images[currentImageIndex].title;
         currentImageContainer.querySelector('.description p').innerHTML = images[currentImageIndex].text;
     }
+    
+    const btnAutoStop = document.querySelector('.stop');
+        btnAutoStop.addEventListener('click', function() {
+        clearInterval(time);
 });
+
+})

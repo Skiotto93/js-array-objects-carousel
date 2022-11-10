@@ -90,9 +90,15 @@ body {
     display: flex;
     justify-content: center;
 }
-.btn-auto {
+.btn-auto{
     margin-left: 1.25rem;
     padding: 0 .625rem;
     border-radius: 5px;
     cursor: pointer;
+}
+.start {
+
+}
+.stop {
+    
 }
